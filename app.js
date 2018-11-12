@@ -2,7 +2,9 @@ let voters = [];
 let democratCandidates = [];
 let republicanCandidates = [];
 let independedCandidates = [];
-
+// let faker = require('faker');
+// let randomName = faker.name.findName();
+let ideologies = ["Conservative", "Liberal", "Neutral"];
 class Person {
     constructor(name){
         this.name = name;
@@ -10,14 +12,14 @@ class Person {
 }
 
 class Voter extends Person {
-    constructor(name, ideologoy){
+    constructor(name, ideology){
         super(name);
-        this.ideologoy = ideologoy;
+        this.ideology = ideology;
     }
 }
 
 class Candidate extends Person{
-    constructor(name, party){
+    constructor(name, party, votes){
         super(name);
         this.party = party;
         votes = 0;
@@ -35,21 +37,41 @@ class Candidate extends Person{
 }
 
 
+$(document).ready(function(){
 
-$('#canidate-form form').on('submit' (event => {
+})
+$('#candidate-form form').on('submit', (event) => {
     event.preventDefault();
-    let newCandidateMember = new Candidate($("#candiddateName").val(),$('#candidateParty').val());
+    let candidateName = $('#candidate-name').val()
+    let candidateParty = $('#candidate-party').val()
+    let newCandidateMember = new Candidate(candidateName, candidateParty);
     $('#candidate-list ul').append([`<li class="list-group-item"> ${newCandidateMember.name} is a ${newCandidateMember.party}</li>`]);
     console.log(newCandidateMember);
-}));
+});
 
-$('#voter-form form').on('submit' (event => {
+$('#voter-form form').on('submit', (event) => {
     event.preventDefault();
-    let newVoter = new Voter($("#voterName").val(), $('#voterIdeology').val());
-    $('#voter-list ul').append([`<li class="list-group-item"> ${newVoter.name} is a ${newVoter.ideology}</li>`]);
-    console.log(newVoter);
-}));    
+     let voterName = $('#voter-name').val()
+     let voterIdeology = $('#voter-ideology').val()
+     let newVoteMember = new Voter(voterName, voterIdeology);
+     $('#voter-list ul').append([`<li class="list-group-item"> ${newVoteMember.name} is a ${newVoteMember.ideology}</li>`]);
+    console.log(newVoteMember);
+});    
 
-$('.randomize-btn').on('click' (event => {
-    event.preventDefault();
-}))
+// $('.randomize-btn').on('click', (event) => {
+//     event.preventDefault();
+//     let randideology = ideologies[Math.floor(Math.random() * ideologies.length)];
+//     console.log(randideology)
+//     let randList = new Voter(($(randomName).val(), $('#voterIdeology').val()));
+//     $('#voter-list ul').append([`<li class="list-group-item"> ${newVoter.name} is a ${newVoter.ideology}</li>`]);
+//     console.log(randideology);
+// })
+
+// let fakeName = faker.name.findName();
+// console.log(fakeName);
+
+
+
+function vote (){
+
+}

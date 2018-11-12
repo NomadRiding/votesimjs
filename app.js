@@ -37,7 +37,19 @@ class Candidate extends Person{
 
 
 $('#canidate-form form').on('submit' (event => {
+    event.preventDefault();
     let newCandidateMember = new Candidate($("#candiddateName").val(),$('#candidateParty').val());
-    $('.candidateList').push([`<li class="list-group-item"> ${'newCandidateMember.name},${newCandidateMember.party}</li>`])
-}))
+    $('#candidate-list ul').append([`<li class="list-group-item"> ${newCandidateMember.name} is a ${newCandidateMember.party}</li>`]);
+    console.log(newCandidateMember);
+}));
 
+$('#voter-form form').on('submit' (event => {
+    event.preventDefault();
+    let newVoter = new Voter($("#voterName").val(), $('#voterIdeology').val());
+    $('#voter-list ul').append([`<li class="list-group-item"> ${newVoter.name} is a ${newVoter.ideology}</li>`]);
+    console.log(newVoter);
+}));    
+
+$('.randomize-btn').on('click' (event => {
+    event.preventDefault();
+}))

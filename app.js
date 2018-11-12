@@ -37,9 +37,7 @@ class Candidate extends Person{
 }
 
 
-$(document).ready(function(){
 
-})
 $('#candidate-form form').on('submit', (event) => {
     event.preventDefault();
     let candidateName = $('#candidate-name').val()
@@ -58,7 +56,7 @@ $('#voter-form form').on('submit', (event) => {
      $('#voter-list ul').append([`<li class="list-group-item"> ${newVoteMember.name} is a ${newVoteMember.ideology}</li>`]);
     voters.push(newVoteMember);
      console.log(newVoteMember);
-});    
+});
 
 
 function voteCalc(num1, num2,){
@@ -108,7 +106,7 @@ $(`#vote-btn-div button`).on('click', (event) => {
 
 
 /*
-3a.  If the Voter 's ideology property is equal to liberal, 
-the voter has a 60 percent chance of voting democratic, 20 percent chance 
-of voting independent, and 20 percent chance of voting republican. 
+3a.  If the Voter 's ideology property is equal to liberal,
+the voter has a 60 percent chance of voting democratic, 20 percent chance
+of voting independent, and 20 percent chance of voting republican.
 */

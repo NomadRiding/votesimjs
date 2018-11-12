@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/wyncode/js-voter-sim#readme",
   "dependencies": {
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "json-faker": "^1.1.2"
   }
 }
